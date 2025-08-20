@@ -13,7 +13,6 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
 
-    # Instantiate player in the center of the screen
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     while True:
@@ -22,8 +21,10 @@ def main():
                 pygame.quit()
                 return
 
+        player.update(dt)  # Update player rotation
+
         screen.fill((0, 0, 0))
-        player.draw(screen)  # Draw the player
+        player.draw(screen)
         pygame.display.flip()
 
         dt = clock.tick(60) / 1000
